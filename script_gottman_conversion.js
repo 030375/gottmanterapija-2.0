@@ -190,23 +190,30 @@ document.addEventListener('DOMContentLoaded', function () {
         if (prevBtn) prevBtn.addEventListener('click', () => scrollToSlide(currentIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => scrollToSlide(currentIndex + 1));
 
-        // 4. Логика Lightbox (Увеличение по клику)
+        // 4. Open the selected certificate directly, including non-active carousel slides.
         slides.forEach(slide => {
-            slide.addEventListener('click', function() {
-                // Если кликнули на неактивный (боковой) слайд - плавно прокручиваем его в центр
-                if (!this.classList.contains('is-active')) {
-                    const index = Array.from(slides).indexOf(this);
-                    scrollToSlide(index);
-                    return;
-                }
-                
-                // Если кликнули на активный центральный - открываем Lightbox
-                if (lightbox && lightboxImg) {
-                    const imgSrc = this.querySelector('img').src;
-                    lightboxImg.src = imgSrc;
-                    lightbox.classList.add('active');
-                    document.body.classList.add('body-modal-open'); // Используем сущ. класс для блокировки скролла тела
-                }
+            const wrapper = slide.querySelector('.diploma-image-wrapper');
+            const img = slide.querySelector('img');
+            if (!wrapper || !img) return;
+            wrapper.setAttribute('role', 'button');
+            wrapper.setAttribute('tabindex', '0');
+            wrapper.setAttribute('aria-label', 'Увеличить: ' + (img.alt || 'сертификат'));
+            const openCertificate = () => {
+                if (!lightbox || !lightboxImg) return;
+                const full = img.getAttribute('data-full');
+                lightboxImg.onerror = () => {
+                    lightboxImg.onerror = null;
+                    lightboxImg.src = img.currentSrc || img.src;
+                };
+                lightboxImg.src = full || img.currentSrc || img.src;
+                lightboxImg.alt = img.alt || 'Увеличенный сертификат';
+                lightbox.classList.add('active');
+                document.body.classList.add('body-modal-open');
+                if (lightboxClose) lightboxClose.focus();
+            };
+            wrapper.addEventListener('click', openCertificate);
+            wrapper.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCertificate(); }
             });
         });
 
