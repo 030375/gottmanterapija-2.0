@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+# The OAI-SearchBot crawler is allowed for ChatGPT search.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://gottmanterapija.lv/sitemap.xml
