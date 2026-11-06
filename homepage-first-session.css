@@ -1,0 +1,117 @@
+/* First-session block — scoped visual alignment with gottmanterapija.lv main page. */
+.bridge.bridge-modern{padding:clamp(18px,3vw,32px) 0 12px;background:#fff}
+.bridge-modern .bridge-card.bridge-first-session{
+  padding:clamp(24px,3.4vw,40px);
+  border:1px solid #f2dfe7;
+  border-radius:28px;
+  background:linear-gradient(126deg,#fff7f9 0%,#fffafd 52%,#f9f6ff 100%);
+  box-shadow:0 16px 44px rgba(46,25,51,.065)
+}
+.bridge-first-session .bridge-intro{max-width:840px;margin-bottom:24px}
+.bridge-first-session .section-eyebrow{margin-bottom:11px}
+.bridge-modern .bridge-first-session h2{
+  margin:0 0 11px;
+  max-width:24ch;
+  font-family:"Playfair Display","Playfair Display Fallback",Georgia,serif;
+  font-size:clamp(1.85rem,3.1vw,2.65rem);
+  line-height:1.18;
+  letter-spacing:-.025em;
+  color:#0f172a
+}
+.bridge-modern .bridge-first-session .bridge-subtitle{
+  margin:0;
+  max-width:710px;
+  font-size:clamp(.91rem,1.3vw,1rem);
+  line-height:1.65;
+  color:#64748b
+}
+.bridge-first-session .bridge-steps{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  padding:0;
+  margin:0 0 22px;
+  counter-reset:none
+}
+.bridge-first-session .bridge-step{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  min-width:0;
+  padding:19px 17px;
+  border-radius:19px;
+  border:1px solid #f1e3e9;
+  background:#fff;
+  box-shadow:0 8px 22px rgba(32,30,55,.035)
+}
+.bridge-first-session .bridge-step-number{
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:#ffe6ef;
+  color:#c51d55;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.025em
+}
+.bridge-first-session .bridge-step:nth-child(2) .bridge-step-number{background:#f3eaff;color:#8b35aa}
+.bridge-first-session .bridge-step:nth-child(3) .bridge-step-number{background:#fceaf2;color:#bb396a}
+.bridge-first-session .bridge-step-body{min-width:0}
+.bridge-first-session .bridge-step h3{
+  margin:2px 0 7px;
+  font-family:"Inter","Inter Fallback",system-ui,sans-serif;
+  font-size:clamp(.95rem,1.25vw,1.04rem);
+  line-height:1.35;
+  font-weight:800;
+  letter-spacing:-.008em;
+  color:#19243a
+}
+.bridge-modern .bridge-first-session .bridge-step p{
+  max-width:none;
+  margin:0;
+  font-size:.89rem;
+  line-height:1.6;
+  font-weight:400;
+  color:#5d697c
+}
+.bridge-first-session .bridge-more{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:43px;
+  padding:10px 16px;
+  border:1px solid #f1c6d6;
+  border-radius:12px;
+  background:#fff;
+  color:#b52354;
+  text-decoration:none;
+  font-size:.87rem;
+  font-weight:800;
+  line-height:1.4;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease
+}
+.bridge-first-session .bridge-more:hover{background:#fff0f5;border-color:#e69fbb;transform:translateY(-2px)}
+.bridge-first-session .bridge-more:focus-visible{outline:3px solid #7e22ce;outline-offset:3px}
+.bridge-first-session .bridge-more i{font-size:.77rem}
+@media(max-width:920px){
+  .bridge-first-session .bridge-steps{grid-template-columns:1fr;gap:11px}
+  .bridge-first-session .bridge-step{padding:16px;align-items:center}
+  .bridge-modern .bridge-first-session h2{max-width:none}
+  .bridge-first-session .bridge-intro{margin-bottom:19px}
+}
+@media(max-width:520px){
+  .bridge-modern .bridge-card.bridge-first-session{padding:21px 17px;border-radius:22px}
+  .bridge-modern .bridge-first-session h2{font-size:clamp(1.65rem,7.7vw,2rem)}
+  .bridge-first-session .bridge-step{gap:12px;padding:15px 13px;border-radius:16px;align-items:flex-start}
+  .bridge-first-session .bridge-step-number{width:36px;height:36px;border-radius:11px}
+  .bridge-first-session .bridge-more{width:100%;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .bridge-first-session .bridge-more{transition:none}
+  .bridge-first-session .bridge-more:hover{transform:none}
+}
