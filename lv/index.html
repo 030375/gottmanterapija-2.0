@@ -60,57 +60,264 @@
 
   <!-- Schema.org микроразметка -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Ksēnija Bodrihina - Ģimenes psiholoģe Rīgā",
-    "url": "https://gottmanterapija.lv",
-    
-    "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
-    "description": "Profesionāla ģimenes psiholoģe Rīgā, specializējusies pāru terapijā pēc Gotmana metodes",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Krišjāņa Barona iela 63",
-      "addressLocality": "Rīga",
-      "addressRegion": "LV-RI",
-      
-      "addressCountry": "LV"
-    },
-    "telephone": "+37126037277",
-    
-    "priceRange": "€50-100",
-    "sameAs": [
-      "https://www.instagram.com/ksenija_bodrihina/",
-      "https://www.facebook.com/ksenija.obuhova"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Pakalpojumi",
-      "itemListElement": [
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://gottmanterapija.lv/#ksenija-bodrihina",
+      "name": "Ksenija Bodrihina",
+      "alternateName": [
+        "Ксения Бодрихина",
+        "Ksēnija Bodrihina"
+      ],
+      "jobTitle": [
+        "Клинический психолог",
+        "Семейный психолог и психолог для пар"
+      ],
+      "description": "Клинический психолог в Риге, прошедшая обучение Gottman Method Couples Therapy Level 1, Level 2 и Treating Affairs and Trauma. Не заявляет квалификацию Certified Gottman Therapist.",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Rīgas Stradiņa universitāte (RSU)"
+      },
+      "hasCredential": [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pāru terapija",
-            "description": "Profesionāla pāru konsultācija pēc Gotmana metodes",
-            "price": "100",
-            "priceCurrency": "EUR"
-          }
+          "@type": "EducationalOccupationalCredential",
+          "name": "Professional psychologist certificate No. 1300777",
+          "identifier": "1300777",
+          "credentialCategory": "Professional certification",
+          "url": "https://www.viis.gov.lv/registri/psihologi?PersonFullName=ksenija+bodrihina&search=true"
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Individuāla konsultācija",
-            "description": "Individuāla psiholoģiskā konsultācija",
-            "price": "60",
-            "priceCurrency": "EUR"
+          "@type": "EducationalOccupationalCredential",
+          "name": "Gottman Method Couples Therapy Level 1 training",
+          "credentialCategory": "Professional training"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Gottman Method Couples Therapy Level 2 training",
+          "credentialCategory": "Professional training"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Treating Affairs and Trauma",
+          "credentialCategory": "Professional training"
+        }
+      ],
+      "knowsLanguage": [
+        "ru",
+        "lv"
+      ],
+      "worksFor": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
+      "url": "https://gottmanterapija.lv/"
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://gottmanterapija.lv/#practice",
+      "name": "Ksenija Bodrihina — психолог для пар / psiholoģe pāriem",
+      "alternateName": [
+        "Ксения Бодрихина — семейный психолог",
+        "Ksēnija Bodrihina — ģimenes psiholoģe"
+      ],
+      "description": "Частная психологическая практика: консультации для пар и индивидуально, в Риге и онлайн. / Privātprakse: pāru un individuālās konsultācijas Rīgā un tiešsaistē.",
+      "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
+      "url": "https://gottmanterapija.lv/",
+      "telephone": "+37126037277",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Krišjāņa Barona iela 63",
+        "addressLocality": "Rīga",
+        "postalCode": "LV-1001",
+        "addressCountry": "LV"
+      },
+      "priceRange": "50–100 EUR",
+      "founder": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "employee": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://gottmanterapija.lv/#consultations",
+        "name": "Консультации / Konsultācijas",
+        "itemListElement": [
+          {
+            "@id": "https://gottmanterapija.lv/#offer-couples-online"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-couples-in-person"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-individual-online"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-young-couples"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#couples-online",
+      "name": "Парная консультация онлайн / Pāru konsultācija tiešsaistē",
+      "serviceType": "Консультация для пар / Pāru konsultācija",
+      "description": "Продолжительность / Ilgums: 90 минут / minūtes; формат / formāts: tiešsaistē / онлайн.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ]
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-couples-online"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#couples-in-person",
+      "name": "Парная консультация очно / Pāru konsultācija klātienē",
+      "serviceType": "Консультация для пар / Pāru konsultācija",
+      "description": "Продолжительность / Ilgums: 90 минут / minūtes; формат / formāts: klātienē / очно, по предварительной записи.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ],
+        "serviceLocation": {
+          "@type": "Place",
+          "name": "Кабинет психолога / Psihologa kabinets",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Krišjāņa Barona iela 63",
+            "addressLocality": "Rīga",
+            "postalCode": "LV-1001",
+            "addressCountry": "LV"
           }
         }
-      ]
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-couples-in-person"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#individual-online",
+      "name": "Индивидуальная консультация онлайн / Individuāla konsultācija tiešsaistē",
+      "serviceType": "Индивидуальная психологическая консультация / Individuāla psiholoģiskā konsultācija",
+      "description": "Продолжительность / Ilgums: 60 минут / minūtes; формат / formāts: tiešsaistē / онлайн.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ]
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-individual-online"
+      }
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-couples-online",
+      "name": "Парная консультация онлайн / Pāru konsultācija tiešsaistē",
+      "price": 90,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-online"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-couples-in-person",
+      "name": "Парная консультация очно / Pāru konsultācija klātienē",
+      "price": 100,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-in-person"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services",
+      "availability": "https://schema.org/LimitedAvailability"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-individual-online",
+      "name": "Индивидуальная консультация онлайн / Individuāla konsultācija tiešsaistē",
+      "price": 50,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#individual-online"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-young-couples",
+      "name": "Льготная очная консультация для молодых пар / Īpašs piedāvājums jaunajiem pāriem",
+      "description": "90-минутная очная консультация для пары, если обоим партнёрам меньше 24 лет / 90 minūšu klātienes konsultācija, ja abi partneri ir jaunāki par 24 gadiem.",
+      "eligibleCustomerType": "Both partners younger than 24",
+      "price": 80,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-in-person"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://gottmanterapija.lv/lv/#webpage",
+      "url": "https://gottmanterapija.lv/lv/",
+      "inLanguage": "lv",
+      "mainEntity": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "isPartOf": {
+        "@id": "https://gottmanterapija.lv/#website"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gottmanterapija.lv/#website",
+      "url": "https://gottmanterapija.lv/",
+      "inLanguage": [
+        "ru",
+        "lv"
+      ],
+      "name": "Gottman Therapy LV"
     }
-  }
-  </script>
+  ]
+}
+</script>
   
 <link rel="stylesheet" href="/lv/full-site-enhancements.css">
 </head>
@@ -411,7 +618,7 @@
               </div>
             </header>
             <div class="profile-description">
-              <p>Es esmu sertificēta klīniskā psiholoģe (RSU) un Gotmana metodes speciāliste. Veicu ģimenes terapiju Rīgā un tiešsaistē.</p>
+              <p>Esmu sertificēta klīniskā psiholoģe ar RSU izglītību (sertifikāts Nr. 1300777), ģimenes psiholoģe un psiholoģe pāriem. Esmu apguvusi Gottman Method Couples Therapy Level 1, Level 2 un Treating Affairs and Trauma. Šīs apmācības nenozīmē Certified Gottman Therapist kvalifikāciju. Konsultācijas sniedzu krievu un latviešu valodā.</p>
               <p>Gotmana metode balstās uz zinātniskiem pētījumiem un ir augsti efektīva. Es ticu, ka katras ģimenes stāsts ir unikāls.</p>
               <p>Mana mērķis ir radīt drošu telpu un nodot praktiskus rīkus attiecību stiprināšanai.</p>
             </div>
@@ -599,7 +806,7 @@
       
       <!-- Karte 2: Pāru terapija (Klātienē) -->
       <div class="service-card">
-        <div class="service-badge">Nav pieejama</div>
+        <div class="service-badge">Pēc vienošanās</div>
         <div class="service-header">
           <div class="service-icon rose-icon"><i class="fas fa-laptop-medical icon"></i></div>
           <div>
@@ -634,7 +841,7 @@
         <div class="service-header">
           <div class="service-icon indigo-icon"><i class="fas fa-user icon"></i></div>
           <div>
-            <h3>Individuālā konsultācija</h3>
+            <h3>Individuālā konsultācija (tiešsaistē)</h3>
             <div class="service-price">€50 <span>/ 60 min</span></div>
           </div>
         </div>
@@ -648,7 +855,7 @@
           </ul>
           <div class="service-notice info-notice">
             <i class="fas fa-info-circle icon"></i>
-            <p>Konsultācijas notiek gan <strong>klātienē</strong>, gan <strong>tiešsaistē</strong>. Piesakoties, izvēlieties sev ērtāko formātu.</p>
+            <p>Individuālā konsultācija šobrīd pieejama <strong>tiešsaistē</strong>; ilgums — 60 minūtes.</p>
           </div>
         </div>
         <a href="https://wa.me/37126037277?text=Sveiki!%20Vēlos%20pieteikties%20individuālai%20konsultācijai" class="service-button" target="_blank" rel="noopener">
@@ -658,7 +865,7 @@
     </div>
   </div>
 </section>
-<section class="lv-completion" id="attiecibu-grutibas"><div class="container"><h2>Ar kādām attiecību grūtībām varu palīdzēt?</h2><p>Ja sarunas arvien biežāk pārvēršas strīdos vai partneri jūtas attālinājušies, ir vērts meklēt jaunu pieeju savstarpējai komunikācijai.</p><div class="lv-completion-grid"><article class="lv-completion-card"><h3>Atkārtoti konflikti</h3><p>Kritika, aizsargāšanās, klusēšana un sajūta, ka jūs viens otru vairs nedzirdat.</p></article><article class="lv-completion-card"><h3>Emocionāla distance</h3><p>Samazinājusies tuvība, vientulības sajūta attiecībās un grūtības runāt par vajadzībām.</p></article><article class="lv-completion-card"><h3>Uzticēšanās krīze</h3><p>Neuzticība, aizvainojums un jautājums, vai un kā iespējams atjaunot savstarpēju drošību.</p></article></div></div></section><section class="lv-completion" id="uzticesanas-atjaunosana" style="background:#fff"><div class="container"><h2>Uzticēšanās atjaunošana pēc neuzticības</h2><p>Neuzticība var radīt spēcīgas emocijas un neskaidrību par attiecību nākotni. Konsultācijās var drošā vidē apspriest notikušo, robežas, atbildību un turpmākos soļus. Neviens konkrēts rezultāts netiek garantēts.</p><a class="btn btn-primary" href="https://wa.me/37126037277?text=Labdien!%20V%C4%93los%20uzzin%C4%81t%20par%20p%C4%81ru%20konsult%C4%81ciju" target="_blank" rel="noopener">Uzdot jautājumu par konsultāciju</a></div></section><section class="lv-completion" id="jaunie-pari"><div class="container"><h2>Atbalsts jauniem pāriem</h2><p>Attiecību prasmes ir vērts attīstīt jau pašā kopdzīves sākumā. Jaunajiem pāriem līdz 24 gadu vecumam pieejama īpaša konsultācijas cena — <strong>80 € pārim</strong>. Precīzus nosacījumus un pieejamību lūdzam saskaņot pirms pieraksta.</p><a class="btn btn-primary" href="https://wa.me/37126037277?text=Labdien!%20V%C4%93los%20uzzin%C4%81t%20par%20pied%C4%81v%C4%81jumu%20jauniem%20p%C4%81riem" target="_blank" rel="noopener">Uzzināt vairāk</a></div></section><section class="lv-completion" id="raksti" style="background:#fff"><div class="container"><h2>Noderīgi raksti par attiecībām</h2><p>Padziļināti materiāli par Gotmana metodi, konfliktiem un saziņu. Daļa rakstu pašlaik pieejama krievu valodā; latviešu tulkojumi vēl tiek gatavoti.</p><div class="lv-articles-grid"><a href="/articles.html">Visu rakstu bibliotēka (RU)</a><a href="/articles/metod-gottmana-dlya-otnoshenij.html">Gotmana metodes principi (RU)</a><a href="/articles/kak-pomiritsya-posle-ssory.html">Kā izlīgt pēc strīda (RU)</a><a href="/articles/partner-ne-hochet-k-psihologu.html">Ja partneris nevēlas konsultāciju (RU)</a></div></div></section>
+<section class="lv-completion" id="attiecibu-grutibas"><div class="container"><h2>Ar kādām attiecību grūtībām varu palīdzēt?</h2><p>Ja sarunas arvien biežāk pārvēršas strīdos vai partneri jūtas attālinājušies, ir vērts meklēt jaunu pieeju savstarpējai komunikācijai.</p><div class="lv-completion-grid"><article class="lv-completion-card"><h3>Atkārtoti konflikti</h3><p>Kritika, aizsargāšanās, klusēšana un sajūta, ka jūs viens otru vairs nedzirdat.</p></article><article class="lv-completion-card"><h3>Emocionāla distance</h3><p>Samazinājusies tuvība, vientulības sajūta attiecībās un grūtības runāt par vajadzībām.</p></article><article class="lv-completion-card"><h3>Uzticēšanās krīze</h3><p>Neuzticība, aizvainojums un jautājums, vai un kā iespējams atjaunot savstarpēju drošību.</p></article></div></div></section><section class="lv-completion" id="uzticesanas-atjaunosana" style="background:#fff"><div class="container"><h2>Uzticēšanās atjaunošana pēc neuzticības</h2><p>Neuzticība var radīt spēcīgas emocijas un neskaidrību par attiecību nākotni. Konsultācijās var drošā vidē apspriest notikušo, robežas, atbildību un turpmākos soļus. Neviens konkrēts rezultāts netiek garantēts.</p><a class="btn btn-primary" href="https://wa.me/37126037277?text=Labdien!%20V%C4%93los%20uzzin%C4%81t%20par%20p%C4%81ru%20konsult%C4%81ciju" target="_blank" rel="noopener">Uzdot jautājumu par konsultāciju</a></div></section><section class="lv-completion" id="jaunie-pari"><div class="container"><h2>Atbalsts jauniem pāriem</h2><p>Attiecību prasmes ir vērts attīstīt jau pašā kopdzīves sākumā. Ja <strong>abi partneri ir jaunāki par 24 gadiem</strong>, klātienes pāru konsultācijas (90 minūtes) īpašā cena ir <strong>80 € pārim</strong> (standarta cena 100 €). Pieejamību lūdzam saskaņot pirms pieraksta.</p><a class="btn btn-primary" href="https://wa.me/37126037277?text=Labdien!%20V%C4%93los%20uzzin%C4%81t%20par%20pied%C4%81v%C4%81jumu%20jauniem%20p%C4%81riem" target="_blank" rel="noopener">Uzzināt vairāk</a></div></section><section class="lv-completion" id="raksti" style="background:#fff"><div class="container"><h2>Noderīgi raksti par attiecībām</h2><p>Padziļināti materiāli par Gotmana metodi, konfliktiem un saziņu. Daļa rakstu pašlaik pieejama krievu valodā; latviešu tulkojumi vēl tiek gatavoti.</p><div class="lv-articles-grid"><a href="/articles.html">Visu rakstu bibliotēka (RU)</a><a href="/articles/metod-gottmana-dlya-otnoshenij.html">Gotmana metodes principi (RU)</a><a href="/articles/kak-pomiritsya-posle-ssory.html">Kā izlīgt pēc strīda (RU)</a><a href="/articles/partner-ne-hochet-k-psihologu.html">Ja partneris nevēlas konsultāciju (RU)</a></div></div></section>
 <!-- Veiksmes stāsti -->
 <section id="testimonials" class="testimonials-section section-padding" aria-labelledby="testimonials-heading">
   <div class="container">
@@ -802,7 +1009,8 @@
               <select id="service" name="service" class="form-input form-select" required>
                 <option value="">Izvēlieties pakalpojumu</option>
                 <option value="couple">Pāru konsultācija tiešsaistē (€90/90 min)</option>
-                <option value="individual">Individuāla konsultācija (cenu precizēt)</option>
+                <option value="couple-office">Pāru konsultācija klātienē (€100/90 min, pēc vienošanās)</option>
+                <option value="individual">Individuāla konsultācija tiešsaistē (€50/60 min)</option>
               </select>
             </div>
             <div class="form-group">
