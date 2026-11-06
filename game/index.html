@@ -124,7 +124,7 @@ function showIntroResult(){
  const insight=el("div","mini-insight-card");insight.append(el("p","intro-kicker","Один принцип метода Готтмана для вашей темы"),el("p","",cfg.insight));
  const next=el("div","mini-next"),actions=el("div","mini-actions");
  actions.append(contact,fullGame);
- next.append(el("h3","","Как хотите продолжить?"),el("p","","На встрече Ксения выслушает вашу историю, поможет разобраться в повторяющихся трудностях и подберёт дополнительные инструменты метода Готтмана. Результаты индивидуальны и не гарантируются."),actions,el("p","intro-note","В WhatsApp передаётся только общая тема. Ваши ответы тренажёра не отправляются."));
+ next.append(el("h3","","Как хотите продолжить?"),el("p","","На встрече Ксения выслушает вашу историю, поможет разобраться в повторяющихся трудностях и подберёт дополнительные инструменты метода Готтмана."),actions,el("p","intro-note","В WhatsApp передаётся только общая тема. Ваши ответы тренажёра не отправляются."));
  const practice=el("div","mini-practice-area");
  practice.append(el("p","intro-kicker","Если хочется ещё немного попробовать"),el("h3","","Небольшое упражнение"),el("p","",cfg.practice),choices,feedback,
  button("Попробовать другую тему","secondary",()=>{byId("intro-result").hidden=true;introRoute=null;introStep=0;byId("intro").scrollIntoView({behavior:"smooth",block:"start"})}));
