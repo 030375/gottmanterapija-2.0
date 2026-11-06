@@ -42,143 +42,258 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Ксения Бодрихина - Семейный психолог",
-  "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
-  "@id": "https://gottmanterapija.lv/",
-  "url": "https://gottmanterapija.lv/",
-  "telephone": "+371 26037277",
-  "priceRange": "€€",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Krišjāņa Barona iela 63",
-    "addressLocality": "Riga",
-    "postalCode": "LV-1001",
-    "addressCountry": "LV"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 56.9571648,
-    "longitude": 24.1337932
-  },
-  "description": "Профессиональная семейная и парная терапия в Риге по научно обоснованному методу Готтмана. Помощь в восстановлении доверия и близости.",
-  "openingHoursSpecification": [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
+      "@type": "Person",
+      "@id": "https://gottmanterapija.lv/#ksenija-bodrihina",
+      "name": "Ksenija Bodrihina",
+      "alternateName": [
+        "Ксения Бодрихина",
+        "Ksēnija Bodrihina"
       ],
-      "opens": "09:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Saturday",
-        "Sunday"
+      "jobTitle": [
+        "Клинический психолог",
+        "Семейный психолог и психолог для пар"
       ],
-      "opens": "10:00",
-      "closes": "18:00"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "3"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Мария"
+      "description": "Клинический психолог в Риге, прошедшая обучение Gottman Method Couples Therapy Level 1, Level 2 и Treating Affairs and Trauma. Не заявляет квалификацию Certified Gottman Therapist.",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Rīgas Stradiņa universitāte (RSU)"
       },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Professional psychologist certificate No. 1300777",
+          "identifier": "1300777",
+          "credentialCategory": "Professional certification",
+          "url": "https://www.viis.gov.lv/registri/psihologi?PersonFullName=ksenija+bodrihina&search=true"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Gottman Method Couples Therapy Level 1 training",
+          "credentialCategory": "Professional training"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Gottman Method Couples Therapy Level 2 training",
+          "credentialCategory": "Professional training"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Treating Affairs and Trauma",
+          "credentialCategory": "Professional training"
+        }
+      ],
+      "knowsLanguage": [
+        "ru",
+        "lv"
+      ],
+      "worksFor": {
+        "@id": "https://gottmanterapija.lv/#practice"
       },
-      "reviewBody": "Когда я впервые пришла на прием, мы с мужем уже не разговаривали больше часа. Всего за шесть сессий Ксения помогла нам вернуть доверие: мы научились здоровым границам и внимательно слушать друг друга."
+      "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
+      "url": "https://gottmanterapija.lv/"
     },
     {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Андрей"
+      "@type": "ProfessionalService",
+      "@id": "https://gottmanterapija.lv/#practice",
+      "name": "Ksenija Bodrihina — психолог для пар / psiholoģe pāriem",
+      "alternateName": [
+        "Ксения Бодрихина — семейный психолог",
+        "Ksēnija Bodrihina — ģimenes psiholoģe"
+      ],
+      "description": "Частная психологическая практика: консультации для пар и индивидуально, в Риге и онлайн. / Privātprakse: pāru un individuālās konsultācijas Rīgā un tiešsaistē.",
+      "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
+      "url": "https://gottmanterapija.lv/",
+      "telephone": "+37126037277",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Krišjāņa Barona iela 63",
+        "addressLocality": "Rīga",
+        "postalCode": "LV-1001",
+        "addressCountry": "LV"
       },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
+      "priceRange": "50–100 EUR",
+      "founder": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
       },
-      "reviewBody": "Я всегда уходил в себя во время конфликтов и думал, что так будет всегда. После каждой встречи с Ксенией я научился выражать чувства без обвинений, и сейчас мы обсуждаем проблемы спокойно и конструктивно."
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Елена"
+      "employee": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
       },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "Когда родился наш малыш, я почувствовала отчужденность от мужа. Ксения помогла нам найти баланс новых ролей: мы снова стали командой и даже больше ценим каждую минуту вместе!"
-    }
-  ],
-  "alternateName": [
-    "Ksenija Bodrihina",
-    "Ксения Бодрихина"
-  ],
-  "sameAs": [
-    "https://stradini.lv/lv/content/ksenija-bodrihina",
-    "https://dspace.lu.lv/items/1af52173-a613-4d36-b4d4-8fe045afb60f"
-  ],
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Латвийский профессиональный сертификат психолога № 1300777",
-      "identifier": "1300777",
-      "credentialCategory": "Professional certification",
-      "url": "https://www.viis.gov.lv/registri/psihologi?PersonFullName=ksenija+bodrihina&search=true",
-      "recognizedBy": {
-        "@type": "GovernmentOrganization",
-        "name": "Valsts izglītības informācijas sistēma (VIIS)"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://gottmanterapija.lv/#consultations",
+        "name": "Консультации / Konsultācijas",
+        "itemListElement": [
+          {
+            "@id": "https://gottmanterapija.lv/#offer-couples-online"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-couples-in-person"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-individual-online"
+          },
+          {
+            "@id": "https://gottmanterapija.lv/#offer-young-couples"
+          }
+        ]
       }
     },
     {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Gottman Method Couples Therapy Level 1 training",
-      "credentialCategory": "Professional training"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Gottman Method Couples Therapy Level 2 training",
-      "credentialCategory": "Professional training"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Treating Affairs and Trauma",
-      "credentialCategory": "Professional training",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "The Gottman Institute"
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#couples-online",
+      "name": "Парная консультация онлайн / Pāru konsultācija tiešsaistē",
+      "serviceType": "Консультация для пар / Pāru konsultācija",
+      "description": "Продолжительность / Ilgums: 90 минут / minūtes; формат / formāts: tiešsaistē / онлайн.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ]
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-couples-online"
       }
-    }
-  ],
-  "knowsAbout": [
-    "Клиническая психология и психология здоровья",
-    "Консультативная психология",
-    "Парная терапия",
-    "Метод Готтмана",
-    "Восстановление доверия после измены"
-  ],
-  "subjectOf": [
+    },
+    {
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#couples-in-person",
+      "name": "Парная консультация очно / Pāru konsultācija klātienē",
+      "serviceType": "Консультация для пар / Pāru konsultācija",
+      "description": "Продолжительность / Ilgums: 90 минут / minūtes; формат / formāts: klātienē / очно, по предварительной записи.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ],
+        "serviceLocation": {
+          "@type": "Place",
+          "name": "Кабинет психолога / Psihologa kabinets",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Krišjāņa Barona iela 63",
+            "addressLocality": "Rīga",
+            "postalCode": "LV-1001",
+            "addressCountry": "LV"
+          }
+        }
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-couples-in-person"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://gottmanterapija.lv/#individual-online",
+      "name": "Индивидуальная консультация онлайн / Individuāla konsultācija tiešsaistē",
+      "serviceType": "Индивидуальная психологическая консультация / Individuāla psiholoģiskā konsultācija",
+      "description": "Продолжительность / Ilgums: 60 минут / minūtes; формат / formāts: tiešsaistē / онлайн.",
+      "provider": {
+        "@id": "https://gottmanterapija.lv/#ksenija-bodrihina"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://gottmanterapija.lv/#services",
+        "availableLanguage": [
+          "ru",
+          "lv"
+        ]
+      },
+      "offers": {
+        "@id": "https://gottmanterapija.lv/#offer-individual-online"
+      }
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-couples-online",
+      "name": "Парная консультация онлайн / Pāru konsultācija tiešsaistē",
+      "price": 90,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-online"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-couples-in-person",
+      "name": "Парная консультация очно / Pāru konsultācija klātienē",
+      "price": 100,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-in-person"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services",
+      "availability": "https://schema.org/LimitedAvailability"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-individual-online",
+      "name": "Индивидуальная консультация онлайн / Individuāla konsultācija tiešsaistē",
+      "price": 50,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#individual-online"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://gottmanterapija.lv/#offer-young-couples",
+      "name": "Льготная очная консультация для молодых пар / Īpašs piedāvājums jaunajiem pāriem",
+      "description": "90-минутная очная консультация для пары, если обоим партнёрам меньше 24 лет / 90 minūšu klātienes konsultācija, ja abi partneri ir jaunāki par 24 gadiem.",
+      "eligibleCustomerType": "Both partners younger than 24",
+      "price": 80,
+      "priceCurrency": "EUR",
+      "itemOffered": {
+        "@id": "https://gottmanterapija.lv/#couples-in-person"
+      },
+      "seller": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "url": "https://gottmanterapija.lv/#services"
+    },
     {
       "@type": "WebPage",
-      "url": "https://gottmanterapija.lv/kvalifikaciya-gottman.html"
+      "@id": "https://gottmanterapija.lv/#webpage",
+      "url": "https://gottmanterapija.lv/",
+      "inLanguage": "ru",
+      "mainEntity": {
+        "@id": "https://gottmanterapija.lv/#practice"
+      },
+      "isPartOf": {
+        "@id": "https://gottmanterapija.lv/#website"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gottmanterapija.lv/#website",
+      "url": "https://gottmanterapija.lv/",
+      "inLanguage": [
+        "ru",
+        "lv"
+      ],
+      "name": "Gottman Therapy LV"
     }
   ]
 }
@@ -206,45 +321,7 @@
     @media (min-width: 1024px) { .hero-content { grid-template-columns: minmax(0,1fr) 420px; } }
     @media (max-width: 767px) { .hero-modern { min-height: 760px; } .navbar { min-height: 64px; } }
   </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://gottmanterapija.lv/#ksenija-bodrihina",
-  "name": "Ксения Бодрихина",
-  "jobTitle": "Клинический психолог",
-  "description": "Клинический психолог Семейный психолог в Риге. Прошла обучение Gottman Level 1 и Level 2 и специализированную программу Treating Affairs and Trauma от The Gottman Institute.",
-  "image": "https://gottmanterapija.lv/img/ksenija-hero-medium.webp",
-  "url": "https://gottmanterapija.lv/",
-  "knowsAbout": [
-    "Парная терапия",
-    "Метод Готтмана",
-    "Восстановление доверия после измены",
-    "Treating Affairs and Trauma"
-  ],
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Gottman Method Couples Therapy Level 1 training",
-      "credentialCategory": "Professional training"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Gottman Method Couples Therapy Level 2 training",
-      "credentialCategory": "Professional training"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Treating Affairs and Trauma",
-      "credentialCategory": "Professional training",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "The Gottman Institute"
-      }
-    }
-  ]
-}
-</script>
+
 </head>
 <body>
 <!-- Модальное окно теста -->
@@ -1118,8 +1195,9 @@
 <label class="form-label" for="service">Услуга</label>
 <select autocomplete="off" class="form-input form-select" id="service" name="service" required="">
 <option value="">Выберите услугу</option>
-<option value="couple">Парная терапия (€100/90 мин)</option>
-<option value="individual">Индивидуальная консультация (€50/60 мин)</option>
+<option value="couple-online">Парная консультация онлайн (€90/90 мин)</option>
+<option value="couple-office">Парная консультация очно (€100/90 мин, по предварительной записи)</option>
+<option value="individual">Индивидуальная консультация онлайн (€50/60 мин)</option>
 </select>
 </div>
 <div class="form-group">
