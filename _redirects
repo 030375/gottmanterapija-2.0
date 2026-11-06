@@ -11,5 +11,7 @@
 /semejnyj-psiholog-riga.html.html / 301
 /semejnyj-psiholog-riga.fixed.html / 301
 /ru/index.html / 301
-/psiholog /Psiholog.html 301
-/psiholog/ /Psiholog.html 301
+/Psiholog.html /psiholog 301!
+/Psiholog /psiholog 301!
+/psiholog.html /psiholog 301!
+/psiholog/ /psiholog 301!
