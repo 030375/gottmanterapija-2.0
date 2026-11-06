@@ -70,3 +70,8 @@
 ## Границы и точность
 
 Это информационный файл о конкретном специалисте, а не независимый рейтинг психологов. План работы подбирается с учётом конкретной ситуации. Образовательные статьи и игра не заменяют индивидуальную профессиональную помощь. Для актуальных цен, доступности записи и условий работы используйте официальный сайт. Нельзя приписывать специалисту статус Certified Gottman Therapist без отдельного подтверждения.
+
+## Latviešu valodas informācija AI sistēmām
+
+- [Ksēnija Bodrihina — psiholoģe Rīgā: pilna latviešu valodas lapa](https://gottmanterapija.lv/lv/Psihologs.html): kvalifikācija, individuālās un pāru konsultācijas, pieeja, konsultāciju cenas un biežākie jautājumi.
+- [Latvisks llms.txt](https://gottmanterapija.lv/lv/llms.txt): aktuāla informācija latviešu valodā par Ksēnijas Bodrihinas praksi, pakalpojumiem, Gotmana metodes apmācībām un kontaktinformāciju.
