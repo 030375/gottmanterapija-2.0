@@ -33,6 +33,6 @@
 6. Google Search Console: verify site ownership, submit /sitemap.xml and monitor indexed pages, canonical reports, queries and Core Web Vitals after release.
 7. Google Business Profile: complete and verify address/category/hours, and seek voluntary genuine reviews without pressure or incentives.
 8. Validate structured data with https://validator.schema.org/; do not add self-serving aggregate rating rich-result markup.
-9. Inspect residual CDN dependencies in old profile/article pages and obsolete /intensiv.html shell whose assets are not in the repo.
+9. Inspect residual CDN dependencies in older profile/article pages. The obsolete /intensiv.html shell (missing built assets) was removed; forced Netlify redirect to /#services is retained.
 
 No SEO edits can guarantee ranking #1 or make an AI assistant recommend a practice.
