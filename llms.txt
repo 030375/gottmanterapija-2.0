@@ -79,7 +79,7 @@
 
 ## Latviešu valodas informācija AI sistēmām
 
-- [Ksēnija Bodrihina — psiholoģe Rīgā: pilna latviešu valodas lapa](https://gottmanterapija.lv/lv/Psihologs.html): kvalifikācija, individuālās un pāru konsultācijas, pieeja, konsultāciju cenas un biežākie jautājumi.
+- [Ksēnija Bodrihina — psiholoģe Rīgā: pilna latviešu valodas lapa](https://gottmanterapija.lv/lv/psihologs): kvalifikācija, individuālās un pāru konsultācijas, pieeja, konsultāciju cenas un biežākie jautājumi.
 - [Latvisks llms.txt](https://gottmanterapija.lv/lv/llms.txt): aktuāla informācija latviešu valodā par Ksēnijas Bodrihinas praksi, pakalpojumiem, Gotmana metodes apmācībām un kontaktinformāciju.
 
 ## Примечания о фактах, услугах и редактуре
