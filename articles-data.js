@@ -105,7 +105,7 @@ window.ARTICLES = [
   {
     title: "«День сурка» в отношениях",
     description: "Почему пара снова и снова попадает в один и тот же сценарий ссор и как его распознать.",
-    url: "articles/den-surka.html",
+    url: "articles/den-surka",
     date: "2026-06-26",
     category: "Кризис в паре",
     readingTime: "6 мин",
