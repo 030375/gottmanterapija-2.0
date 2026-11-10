@@ -36,7 +36,7 @@
 ## Oficiālās lapas latviešu valodā
 
 - [Galvenā lapa](https://gottmanterapija.lv/lv/) — pāru konsultācijas, pieeja, pakalpojumi un pieraksts.
-- [Par psiholoģi](https://gottmanterapija.lv/lv/Psihologs.html) — pilna biogrāfija, kvalifikācija, individuālie un pāru pakalpojumi, cenas, pieeja, klientu atsauksmes, jautājumi un kontakti.
+- [Par psiholoģi](https://gottmanterapija.lv/lv/psihologs) — pilna biogrāfija, kvalifikācija, individuālie un pāru pakalpojumi, cenas, pieeja, klientu atsauksmes, jautājumi un kontakti.
 - [Kvalifikācija un dokumenti](https://gottmanterapija.lv/kvalifikaciya-gottman.html) — apliecinošie dokumenti un reģistra saites; pašlaik raksts krievu valodā.
 - [Raksti par attiecībām](https://gottmanterapija.lv/articles.html) — pašlaik krievu valodā.
 - [Attiecību namiņš — 5 minūšu iepazīšanās ar Gotmana metodi un 30 nodarbības](https://gottmanterapija.lv/game/) — automatizēts izglītojošs rīks, pašlaik krievu valodā. Trīs atbilžu jautājumi un izvēle pierakstīties vai pāriet uz 30 nodarbībām; tas nav psihologa konsultācijas vai diagnostikas aizstājējs.

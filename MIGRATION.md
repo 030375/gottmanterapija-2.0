@@ -12,7 +12,7 @@
 - Couples online: EUR 90 / 90 min. Couples in person: EUR 100 / 90 min by appointment.
 - Individual online: EUR 50 / 60 min. Young couples where both are under 24: EUR 80 / 90 min in person by appointment.
 - Practice address: Krišjāņa Barona iela 63, Rīga.
-- Consultation languages: Russian, Latvian. Main profile URL: /psiholog; Latvian profile: /lv/Psihologs.html.
+- Consultation languages: Russian, Latvian. Main profile URL: /psiholog; Latvian profile: /lv/psihologs.
 
 ## 2026-11-06 changes and why
 - Replaced unsupported exclusivity and precise 4–8-session performance claims on main landing pages.
