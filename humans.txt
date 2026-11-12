@@ -1,0 +1,16 @@
+/* SITE */
+Name: Gottman Therapy LV
+Website: https://gottmanterapija.lv/
+Languages: Russian, Latvian
+Location: Riga, Latvia
+
+/* CONTENT */
+Psychologist and content subject: Ksenija Bodrihina (Ксения Бодрихина)
+Professional credentials and supporting documents: https://gottmanterapija.lv/kvalifikaciya-gottman.html
+
+/* TECHNOLOGY */
+HTML, CSS, JavaScript
+Hosting: Netlify
+
+/* NOTE */
+This is an independent psychologist's website and is not affiliated with The Gottman Institute.

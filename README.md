@@ -11,4 +11,4 @@ New, isolated rebuild of [gottmanterapija.lv](https://gottmanterapija.lv) from t
 - Avoid unsupported success rates and ambiguous Gottman certification claims.
 - Review preview deployment and functional pages before switching DNS or production deployment.
 
-See `MIGRATION.md` for audit findings and open items.
+See `MIGRATION.md` for the updated SEO/LLM audit, verified practice facts and pre-launch checklist.
