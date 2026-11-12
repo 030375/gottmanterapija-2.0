@@ -14,7 +14,7 @@ window.ARTICLES = [
 
   {
     title: "Ģimenes psiholoģe vai ģimenes terapeits: kad attiecībām vajadzīgs atbalsts?",
-    description: "Kad vērts konsultēties ar ģimenes psiholoģi: ne tikai krīzē, bet arī attiecību stiprināšanai. Gotmena metode un cieņpilns atbalsts.",
+    description: "Kad vērts konsultēties ar ģimenes psiholoģi: ne tikai krīzē, bet arī attiecību stiprināšanai. Gotmana metode un cieņpilns atbalsts.",
     url: "/articles/semejnyj-psiholog-ili-terapevt.html",
     date: "2026-07-03",
     category: "Ģimenes konsultācijas",
@@ -33,11 +33,11 @@ window.ARTICLES = [
     keywords: []
   },
   {
-    title: "Gotmena metode: kā veidot attiecības, kuras nesagrauj konflikti",
-    description: "Gotmena metode saprotami: kā veidot uzticēšanos, pārvaldīt konfliktus un stiprināt tuvību pārī.",
+    title: "Gotmana metode: kā veidot attiecības, kuras nesagrauj konflikti",
+    description: "Gotmana metode saprotami: kā veidot uzticēšanos, pārvaldīt konfliktus un stiprināt tuvību pārī.",
     url: "/articles/metod-gottmana-dlya-otnoshenij.html",
     date: "2026-07-03",
-    category: "Gotmena metode",
+    category: "Gotmana metode",
     readingTime: "8 min",
     featured: true,
     keywords: []
@@ -53,7 +53,7 @@ window.ARTICLES = [
     keywords: []
   },
   {
-    title: "Kā izlīgt pēc strīda: 5 soļi pēc Gotmena metodes",
+    title: "Kā izlīgt pēc strīda: 5 soļi pēc Gotmana metodes",
     description: "Praktiski ieteikumi sarunai pēc strīda, abu partneru skatījuma atzīšanai un nākamā soļa saskaņošanai.",
     url: "/articles/kak-pomiritsya-posle-ssory.html",
     date: "2026-07-01",
@@ -83,11 +83,11 @@ window.ARTICLES = [
     keywords: []
   },
   {
-    title: "Gotmena metode — vienkāršiem vārdiem",
+    title: "Gotmana metode — vienkāršiem vārdiem",
     description: "Kā pētniecībā balstīta pieeja palīdz izprast atkārtotus konfliktus un atjaunot tuvību.",
     url: "/articles/metod_gotmana.html",
     date: "2026-06-28",
-    category: "Gotmena metode",
+    category: "Gotmana metode",
     readingTime: "8 min",
     featured: false,
     keywords: []
