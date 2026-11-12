@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function initProgressiveImage() { 
         const heroImage = document.querySelector('.progressive-image');
         if (!heroImage) return;
+        // The hero now has a real responsive src/srcset in HTML; no second JS image load needed.
+        if (heroImage.classList.contains('loaded')) return;
 
         const highResImage = new Image();
         highResImage.onload = () => {
