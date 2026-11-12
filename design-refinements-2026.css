@@ -1,0 +1,104 @@
+/* Presentation-only refinements shared by the RU and LV homepages. */
+:root {
+  --reading-font: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --space-section: clamp(3.5rem, 6vw, 5.5rem);
+  --shadow-md: 0 8px 28px rgba(43, 27, 51, .055);
+  --shadow-lg: 0 16px 38px rgba(43, 27, 51, .09);
+}
+/* A complete system font avoids mixing Latin-only webfonts with Cyrillic fallbacks. */
+body { font-family: var(--reading-font); line-height: 1.7; }
+h1, h2, h3, h4, .navbar .logo, .premium-site-footer .footer-logo,
+.premium-site-footer .footer-title, .premium-footer-invite h2 { font-family: var(--heading-font); }
+.hero-subtitle, .service-body h4, .premium-site-footer .footer-card>p,
+.premium-site-footer .footer-links a, .premium-footer-invite .premium-invite-kicker {
+  font-family: var(--reading-font);
+}
+h2 { line-height: 1.2; letter-spacing: -.025em; }
+h3, h4 { line-height: 1.3; }
+section[id] { scroll-margin-top: calc(var(--navbar-height) + 24px); }
+.hero-modern { padding-block: clamp(32px, 4vw, 58px); min-height: 0; }
+.hero-title { font-size: clamp(2rem, 3.7vw, 3.25rem); line-height: 1.12; letter-spacing: -.035em; }
+.hero-subtitle { margin-block: 18px 14px; font-size: 1.08rem; font-weight: 700; }
+.hero-description { font-size: 1.05rem; line-height: 1.75; }
+.hero-highlight { box-shadow: none; background: rgba(255,255,255,.8); line-height: 1.65; }
+.hero-stats { gap: 12px; }
+.stat-item { box-shadow: none; border-color: #eadfe6; padding: 14px 8px; }
+.stat-label { font-size: .8rem; line-height: 1.4; }
+.hero-buttons { gap: 12px; }
+.hero-buttons .btn { font-weight: 650; font-size: .95rem; line-height: 1.4; padding: 14px 18px; }
+.hero-photo-card { box-shadow: 0 20px 50px rgba(91,48,75,.12); }
+.bridge-card, .why-card { padding: clamp(24px, 4vw, 44px); }
+.bridge-card { background: linear-gradient(120deg,#fff4f6,#f8f3fd); box-shadow: none; }
+.badge-item { box-shadow: none; border-color: #eee6ec; }
+.badge-text { font-weight: 650; line-height: 1.5; }
+.section-header, .section-title { margin-bottom: clamp(28px,4vw,48px); }
+.section-header p, .section-title p { max-width: 46rem; font-size: 1.05rem; }
+.problem-card, .testimonial-card, .article-card, .profile-card { border-color: #eae2e9; }
+.service-card { border-radius: 24px; }
+.service-card.recommended { box-shadow: 0 12px 32px rgba(225,29,72,.09); }
+.service-header h3 { font-size: 1.5rem; line-height: 1.3; }
+.service-body { line-height: 1.7; }
+.service-body h4 { font-size: .8rem; line-height: 1.6; letter-spacing: .035em; }
+.service-button { font-weight: 650; line-height: 1.45; }
+.faq-question span { font-size: 1rem; font-weight: 650; line-height: 1.55; }
+.faq-question { padding: 22px 26px; }
+.contact-section input, .contact-section select, .contact-section textarea { font-size: 1rem; border-radius: 12px; }
+.premium-site-footer .footer-links a { font-size: .9rem; min-height: 44px; }
+.premium-site-footer .footer-card>p, .premium-site-footer .footer-contact-item { font-size: .9rem; }
+.premium-site-footer .social-link { width:44px; height:44px; flex-basis:44px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #7e22ce; outline-offset: 4px; }
+@media (min-width: 1100px) {
+  .navbar .nav-links .nav-link { font-size: 12px; line-height: 1.3; font-weight: 650; }
+  .navbar .logo { font-size: 17px; }
+  .navbar .logo span { max-width: 160px; white-space: normal; }
+  .navbar .language-switcher-desktop .lang-link { min-width: 30px; min-height: 40px; font-size: 12px; }
+  .hero-content { grid-template-columns: minmax(0,1.3fr) minmax(300px,.8fr); gap: clamp(32px,4vw,64px); }
+  .hero-image { width: 100%; max-width: 380px; }
+  .hero-photo-card { width: 100%; }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .hero-title { font-size: 2.6rem; }
+  .hero-content { grid-template-columns: minmax(0,1fr); }
+  .hero-copy { order: 2; }
+  .hero-image { order: 1; max-width: 280px; }
+  .hero-photo-card { width: 100%; }
+}
+@media (max-width: 767px) {
+  .hero-modern { min-height: 0; padding-top: 30px; }
+  .hero-content { gap: 36px; }
+  .hero-image { width: min(240px,72vw); max-width: 100%; }
+  .hero-photo-card { width: 100%; }
+  .hero-title { font-size: clamp(1.9rem,7.8vw,2.6rem); }
+  .hero-stats { gap: 8px; }
+  .stat-label { font-size: .73rem; }
+  .hero-kicker { font-size: .76rem; }
+  .hero-buttons { grid-template-columns: minmax(0,1fr); }
+  .service-header, .service-body { padding-inline: 22px; }
+  .faq-question { padding: 20px; }
+  .premium-site-footer .footer-grid { gap: 32px; }
+  .premium-site-footer .footer-card { padding-bottom: 22px; border-bottom: 1px solid #eee7ed; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+/* Keep the portrait proportions identical in both language versions. */
+.hero-photo-card { aspect-ratio: 4 / 5; }
+@media (max-width: 1099px) {
+  .hero-photo-card { aspect-ratio: 1; }
+  .hero-photo-card img { object-position: center 25%; }
+}
+@media (max-width: 900px) {
+  .navbar .nav-links { background: #fff; }
+  .language-switcher-mobile .lang-link { display:inline-flex; align-items:center; justify-content:center; min-width:32px; min-height:44px; }
+}
+/* Reserve space for status labels so they never cover a service title. */
+.service-badge { top:16px; right:16px; transform:none; border:0; background:#7e22ce; box-shadow:none; font-size:.75rem; }
+.service-card .service-header { padding-top:62px; align-items:flex-start; }
+.service-header > div { min-width:0; }
+.service-icon { flex-shrink:0; }
+@media (max-width: 420px) {
+  .service-header { gap:14px; }
+  .service-header .service-icon { width:56px; height:56px; font-size:1.5rem; border-radius:18px; }
+  .service-header h3 { font-size:1.35rem; }
+}

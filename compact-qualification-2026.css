@@ -1,0 +1,31 @@
+/* Compact about/qualification layout. No changes to diploma lightbox or carousel logic. */
+.about-section .about-grid {align-items:start;gap:clamp(20px,3vw,42px)}
+.about-section .about-grid > div:first-child {min-width:0}
+.about-section .profile-card {margin-bottom:0;padding:clamp(20px,2.4vw,30px)}
+.about-section .profile-header {margin-bottom:15px}
+.about-section .profile-avatar {width:60px;height:60px;margin-right:16px}
+.about-section .profile-description p {margin-bottom:10px;line-height:1.58}
+.about-section .profile-footer {margin-top:16px;gap:12px 22px}
+.about-section .modern-diplomas {align-self:start;min-width:0;padding:19px 14px 14px;border-radius:22px;background:linear-gradient(145deg,#fffafc,#f8f5fd)}
+.about-section .diplomas-header {gap:10px;margin-bottom:8px;padding-inline:6px}
+.about-section .header-text-group h4 {font-size:clamp(18px,1.5vw,22px)}
+.about-section .diploma-carousel {padding-top:15px;padding-bottom:17px}
+.about-section .diploma-image-wrapper {height:175px}
+.about-section .diplomas-navigation {margin-top:8px}
+.about-section > .container > .education-section {margin-top:26px}
+.about-section > .container > .education-section h4 {font-family:"Playfair Display",Georgia,serif;font-size:clamp(21px,2vw,27px);margin:0 0 15px;color:#0f172a}
+.about-section > .container > .education-section .education-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.about-section > .container > .education-section .education-item {min-width:0;margin:0;padding:17px 18px;box-shadow:0 4px 16px rgba(15,23,42,.045);background:#fff;border-radius:17px}
+.about-section > .container > .education-section .education-item i {margin-right:12px;color:#be185d}
+.about-section > .container > .education-section .education-item h5 {margin:0 0 5px;font-size:15px}
+.about-section > .container > .education-section .education-item p {font-size:13px;line-height:1.5}
+@media(max-width:991px){
+ .about-section > .container > .education-section .education-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+ .about-section .about-grid{gap:20px}
+ .about-section .modern-diplomas{padding:17px 8px}
+ .about-section > .container > .education-section{margin-top:20px}
+ .about-section > .container > .education-section .education-list{grid-template-columns:1fr;gap:10px}
+ .about-section > .container > .education-section .education-item{padding:14px}
+}
