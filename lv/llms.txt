@@ -48,6 +48,12 @@
 - [Rīgas Stradiņa universitātes izglītības un Gotmana apmācību dokumenti](https://gottmanterapija.lv/kvalifikaciya-gottman.html).
 - [Stradiņa slimnīcas vēsturiskais speciālistes profils](https://stradini.lv/lv/content/ksenija-bodrihina) — iepriekšējās profesionālās pieredzes apliecinājums, nevis pašreizējās darba vietas norāde.
 
+## Valodu versijas un meklēšanas informācija
+
+Latviešu sākumlapa /lv/ un krievu sākumlapa / ir atsevišķas kanoniskās lapas ar savstarpēju hreflang. Abās sākumlapās pieejami Person, ProfessionalService, Service, Offer, WebPage, WebSite un FAQPage strukturētie dati; biežāk uzdoto jautājumu atbildes ir tieši no redzamās lapas satura.
+
+Rakstu apraksti latviešu sākumlapā ir latviski, bet pilnie raksti un izglītojošā attiecību spēle /game/ pašlaik ir krievu valodā. Tie nav atsevišķi latviešu valodā pieejami pakalpojumi.
+
 ## Strukturētie dati
 
 - Psiholoģe: `https://gottmanterapija.lv/#ksenija-bodrihina`
