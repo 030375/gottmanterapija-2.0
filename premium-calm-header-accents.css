@@ -1,0 +1,29 @@
+/* Premium Calm: gentle desktop-only styling of the ORIGINAL navigation.
+   Does not change display, positioning, sizing, layout or visibility. */
+@media (min-width:1100px) {
+  .navbar {
+    border-bottom-color: rgba(225,29,72,.12);
+    box-shadow: 0 5px 22px rgba(15,23,42,.07);
+  }
+  .navbar .nav-link .nav-icon {
+    color: var(--accent);
+    opacity: .88;
+    transition: color .2s ease, opacity .2s ease, transform .2s ease;
+  }
+  .navbar .nav-link:hover .nav-icon,
+  .navbar .nav-link:focus-visible .nav-icon {
+    color: var(--primary);
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+  .navbar .nav-link:hover,
+  .navbar .nav-link:focus-visible {
+    color: var(--primary);
+  }
+  .navbar .language-switcher-desktop .lang-link:hover {
+    color: var(--primary);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar .nav-link .nav-icon { transition: none; transform: none; }
+}
