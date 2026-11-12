@@ -1,9 +1,6 @@
-/* Original navigation restored. Desktop-only gentle brand-color accents on existing icons. */
+/* Premium Calm footer only. Header is controlled exclusively by the original site stylesheet. */
 .premium-footer-invite{display:none}
 @media(min-width:1100px){
-.navbar .nav-link .nav-icon{color:var(--accent);transition:color .2s ease,transform .2s ease}
-.navbar .nav-link:hover .nav-icon,.navbar .nav-link:focus-visible .nav-icon{color:var(--primary);transform:translateY(-1px)}
-.navbar .logo-icon{background:linear-gradient(135deg,var(--primary),var(--accent))}
 .premium-footer-invite{display:block;padding:56px 24px 66px;background:linear-gradient(125deg,var(--rose-50),#fff 50%,var(--rose-100));text-align:center;position:relative;overflow:hidden}
 .premium-footer-invite:before,.premium-footer-invite:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(126,34,206,.13);border-radius:50%;pointer-events:none}
 .premium-footer-invite:before{left:-95px;bottom:-130px}.premium-footer-invite:after{right:-80px;top:-160px}
@@ -41,4 +38,3 @@
 .premium-footer-extra a{display:inline-flex;color:var(--accent)!important;font-size:13px;text-decoration:none}
 .premium-footer-extra a:hover{text-decoration:underline}
 }
-@media(prefers-reduced-motion:reduce){.navbar .nav-link .nav-icon{transition:none!important}}
