@@ -257,11 +257,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const questions =[
             { q: "Cik bieži jūtaties saprasts vai saprasta savā pārī?", opts:["Gandrīz vienmēr", "Dažreiz", "Reti", "Nekad"] },
-            { q: "Cik bieži jūs strīdaties?", opts:["Ļoti reti", "Dažreiz, но быстро миримся", "Diezgan bieži", "Pastāvīgi"] },
+            { q: "Cik bieži jūs strīdaties?", opts:["Ļoti reti", "Dažreiz, bet ātri izlīgstam", "Diezgan bieži", "Pastāvīgi"] },
             { q: "Cik lielā mērā uzticaties partnerim?", opts:["Pilnībā", "Lielākoties", "Ar šaubām", "Gandrīz neuzticos"] },
             { q: "Cik bieži jūs patīkami pavadāt laiku kopā?", opts:["Regulāri", "Dažreiz", "Reti", "Gandrīz nekad"] },
             { q: "Cik atklāti jūs sarunājaties ar partneri?", opts:["Ļoti atklāti", "Drīzāk atklāti", "Drīzāk atturīgi", "Ļoti noslēgti"] },
-            { q: "Cik apmierināti esat ar pienākumu sadali attiecībās?", opts:["Pilnībā доволен", "Kopumā apmierināts", "Ir iebildumi", "Neapmierināts"] }
+            { q: "Cik apmierināti esat ar pienākumu sadali attiecībās?", opts:["Pilnībā apmierināts", "Kopumā apmierināts", "Ir iebildumi", "Neapmierināts"] }
         ];
 
         function startRelationshipTest() {
