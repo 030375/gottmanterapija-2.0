@@ -1,0 +1,534 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // === 1. МОБИЛЬНОЕ МЕНЮ ===
+    function initMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (!mobileMenuBtn || !navLinks) return;
+
+        const menuIcon = mobileMenuBtn.querySelector('i');
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            menuIcon.classList.toggle('fa-bars', isExpanded);
+            menuIcon.classList.toggle('fa-times', !isExpanded);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
+
+    // === 2. ПРОГРЕССИВНАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ ===
+    function initProgressiveImage() { 
+        const heroImage = document.querySelector('.progressive-image');
+        if (!heroImage) return;
+
+        const highResImage = new Image();
+        highResImage.onload = () => {
+            heroImage.src = heroImage.dataset.src;
+            if (heroImage.dataset.srcset) heroImage.srcset = heroImage.dataset.srcset;
+            heroImage.classList.add('loaded');
+        };
+        highResImage.src = heroImage.dataset.src;
+        if (heroImage.dataset.srcset) highResImage.srcset = heroImage.dataset.srcset;
+    }
+
+    // === 3. ПЛАВНЫЙ СКРОЛЛ ===
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.js-start-test-btn)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
+    // === 4. ОТСЛЕЖИВАНИЕ КОНВЕРСИЙ (WhatsApp) ===
+    function initConversionTracking() {
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof safeGtag !== 'function') return;
+                const url = link.getAttribute('href');
+                let eventLabel = 'whatsapp_click';
+                if (url.includes('pāru')) eventLabel = 'whatsapp_couple';
+                else if (url.includes('individuā')) eventLabel = 'whatsapp_individual';
+                
+                safeGtag('event', 'conversion', {
+                    'send_to': 'AW-17591249605/FZ8cCNi8358bEMXVlMRB',
+                    'event_category': 'Konversija',
+                    'event_label': eventLabel
+                });
+            });
+        });
+
+        document.querySelectorAll('.js-start-test-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof safeGtag !== 'function') return;
+                safeGtag('event', 'conversion', {
+                    'send_to': 'AW-17591249605/FZ8cCNi8358bEMXVlMRB',
+                    'event_category': 'Konversija',
+                    'event_label': 'Testa_klikšķis'
+                });
+            });
+        });
+    }
+
+    // === 5. ИНИЦИАЛИЗАЦИЯ ===
+    initMobileMenu();
+    initProgressiveImage();
+    initSmoothScroll();
+    initConversionTracking();
+
+    // Ленивая загрузка секций (оставляем вашу логику, она отличная)
+    const lazySections = [
+        { id: 'diploma-carousel', init: initCarousel },
+        { id: 'testModal', init: initTestModal },
+        { id: 'faq', init: initFaqAccordion },
+        { id: 'articles', init: initArticleLoader }
+    ];
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const section = lazySections.find(s => s.id === entry.target.id);
+                if (section && !section.initialized) {
+                    section.init();
+                    section.initialized = true;
+                    obs.unobserve(entry.target);
+                }
+            }
+        });
+    }, { rootMargin: '200px' });
+
+    lazySections.forEach(section => {
+        const element = document.getElementById(section.id);
+        if (element) observer.observe(element);
+    });
+
+  
+
+    // =================================================================================
+    // === 3. ОПРЕДЕЛЕНИЕ ФУНКЦИЙ ДЛЯ ЛЕНИВОЙ ЗАГРУЗКИ =================================
+    // =================================================================================
+
+    // --- НОВАЯ СОВРЕМЕННАЯ КАРУСЕЛЬ ДИПЛОМОВ ---
+    function initCarousel() {
+        const carousel = document.querySelector('.diploma-carousel');
+        const slides = document.querySelectorAll('.diploma-card');
+        const prevBtn = document.querySelector('.diploma-scroll-prev');
+        const nextBtn = document.querySelector('.diploma-scroll-next');
+        const navContainer = document.querySelector('.diplomas-navigation');
+        
+        // Переменные для Lightbox (увеличенного просмотра)
+        const lightbox = document.getElementById('diplomaLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        
+        if (!carousel || !slides.length) return;
+
+        // 1. Динамическое создание точек навигации
+        if (navContainer) {
+            navContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'diploma-indicator' + (index === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `Pāriet uz slaidu ${index + 1}`);
+                dot.addEventListener('click', () => scrollToSlide(index));
+                navContainer.appendChild(dot);
+            });
+        }
+        const indicators = document.querySelectorAll('.diploma-indicator');
+
+        // 2. Логика выделения карточки по центру (Эффект фокуса Apple/AppStore)
+        const observerOptions = {
+            root: carousel,
+            rootMargin: '0px',
+            threshold: 0.6 // Срабатывает, когда карточка на 60% в зоне видимости
+        };
+
+        let currentIndex = 0;
+
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Убираем активный класс у всех
+                    slides.forEach(s => s.classList.remove('is-active'));
+                    indicators.forEach(i => i.classList.remove('active'));
+                    
+                    // Добавляем текущему
+                    entry.target.classList.add('is-active');
+                    
+                    // Обновляем точку
+                    const index = Array.from(slides).indexOf(entry.target);
+                    currentIndex = index;
+                    if(indicators[index]) indicators[index].classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => carouselObserver.observe(slide));
+
+        // 3. Плавная прокрутка
+        function scrollToSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            const slide = slides[index];
+            const scrollLeft = slide.offsetLeft - (carousel.offsetWidth / 2) + (slide.offsetWidth / 2);
+            carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => scrollToSlide(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => scrollToSlide(currentIndex + 1));
+
+        // 4. Open the selected certificate directly, including non-active carousel slides.
+        slides.forEach(slide => {
+            const wrapper = slide.querySelector('.diploma-image-wrapper');
+            const img = slide.querySelector('img');
+            if (!wrapper || !img) return;
+            wrapper.setAttribute('role', 'button');
+            wrapper.setAttribute('tabindex', '0');
+            wrapper.setAttribute('aria-label', 'Palielināt: ' + (img.alt || 'sertifikāts'));
+            const openCertificate = () => {
+                if (!lightbox || !lightboxImg) return;
+                const full = img.getAttribute('data-full');
+                lightboxImg.onerror = () => {
+                    lightboxImg.onerror = null;
+                    lightboxImg.src = img.currentSrc || img.src;
+                };
+                lightboxImg.src = full || img.currentSrc || img.src;
+                lightboxImg.alt = img.alt || 'Palielināts sertifikāts';
+                lightbox.classList.add('active');
+                document.body.classList.add('body-modal-open');
+                if (lightboxClose) lightboxClose.focus();
+            };
+            wrapper.addEventListener('click', openCertificate);
+            wrapper.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCertificate(); }
+            });
+        });
+
+        // Функция закрытия Lightbox
+        const closeLightbox = () => {
+            if (lightbox) {
+                lightbox.classList.remove('active');
+                document.body.classList.remove('body-modal-open');
+                setTimeout(() => { if (lightboxImg) lightboxImg.src = ''; }, 300); // Очищаем после окончания анимации
+            }
+        };
+
+        if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        
+        if(lightbox) {
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox || e.target.classList.contains('lightbox-backdrop')) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        // Закрытие Lightbox по клавише Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Инициализация (центрируем первую карточку)
+        setTimeout(() => scrollToSlide(0), 100);
+    }
+
+    // --- ТЕСТ ОТНОШЕНИЙ ---
+    function initTestModal() {
+        const allTestButtons = document.querySelectorAll('.js-start-test-btn');
+        const testModal = document.getElementById('testModal');
+        const closeTestBtn = document.getElementById('closeTestBtn');
+        const testContent = document.getElementById('testContent');
+        if (!testModal || !closeTestBtn || !testContent || !allTestButtons.length) return;
+
+        const questions =[
+            { q: "Cik bieži jūtaties saprasts vai saprasta savā pārī?", opts:["Gandrīz vienmēr", "Dažreiz", "Reti", "Nekad"] },
+            { q: "Cik bieži jūs strīdaties?", opts:["Ļoti reti", "Dažreiz, но быстро миримся", "Diezgan bieži", "Pastāvīgi"] },
+            { q: "Cik lielā mērā uzticaties partnerim?", opts:["Pilnībā", "Lielākoties", "Ar šaubām", "Gandrīz neuzticos"] },
+            { q: "Cik bieži jūs patīkami pavadāt laiku kopā?", opts:["Regulāri", "Dažreiz", "Reti", "Gandrīz nekad"] },
+            { q: "Cik atklāti jūs sarunājaties ar partneri?", opts:["Ļoti atklāti", "Drīzāk atklāti", "Drīzāk atturīgi", "Ļoti noslēgti"] },
+            { q: "Cik apmierināti esat ar pienākumu sadali attiecībās?", opts:["Pilnībā доволен", "Kopumā apmierināts", "Ir iebildumi", "Neapmierināts"] }
+        ];
+
+        function startRelationshipTest() {
+            let currentQuestion = 0;
+            let score = 0;
+
+            function showQuestion() {
+                if (currentQuestion >= questions.length) {
+                    showResults();
+                    return;
+                }
+                const question = questions[currentQuestion];
+                let html = `<div class="test-question"><h3>${question.q}</h3><div class="test-options">`;
+                question.opts.forEach((opt, index) => {
+                    html += `<button class="test-option" data-score="${3 - index}">${opt}</button>`;
+                });
+                html += `</div></div>`;
+                testContent.innerHTML = html;
+
+                testContent.querySelectorAll('.test-option').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        score += parseInt(btn.dataset.score);
+                        currentQuestion++;
+                        showQuestion();
+                    });
+                });
+            }
+
+            function showResults() {
+                let resultText = '', recommendation = '';
+                if (score >= 18) { resultText = 'Attiecībās daudz stipro pušu'; recommendation = 'Jūsu atbildes liecina par vairākām attiecību stiprajām pusēm. Turpiniet rūpēties par savstarpējo saikni.'; }
+                else if (score >= 12) { resultText = 'Daudz stipro pušu attiecībās'; recommendation = 'Attiecībās ir stiprās puses, kā arī tēmas, par kurām varat turpināt sarunāties.'; }
+                else if (score >= 6) { resultText = 'Ir grūtības, ko vērts pārrunāt'; recommendation = 'Atbildes norāda uz grūtībām, kuras var būt vērtīgi izrunāt ar psiholoģi.'; }
+                else { resultText = 'Attiecībās ir nopietnas grūtības'; recommendation = 'Atbildes var liecināt par nopietnu spriedzi. Apsveriet iespēju saņemt profesionālu atbalstu.'; }
+
+                testContent.innerHTML = `<div class="test-results"><h3>Testa rezultāti</h3><p>Jūsu rezultāts: <strong>${resultText}</strong></p><p>${recommendation}</p><div class="test-actions"><a href="https://wa.me/37126037277?text=Labdien!%20V%C4%93los%20pieteikties%20konsult%C4%81cijai" class="btn btn-primary" target="_blank">Pieteikties konsultācijai</a><button class="btn btn-outline" id="restartTest">Pildīt testu vēlreiz</button></div></div>`;
+                document.getElementById('restartTest').addEventListener('click', startRelationshipTest);
+            }
+            showQuestion();
+        }
+
+        allTestButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                testModal.classList.add('active');
+                document.body.classList.add('body-modal-open');
+                startRelationshipTest();
+            });
+        });
+
+        const closeModal = () => {
+            testModal.classList.remove('active');
+            document.body.classList.remove('body-modal-open');
+        };
+
+        closeTestBtn.addEventListener('click', closeModal);
+        testModal.addEventListener('click', (e) => {
+            if (e.target === testModal || e.target.classList.contains('modal-backdrop')) {
+                closeModal();
+            }
+        });
+    }
+
+    // --- FAQ АККОРДЕОН ---
+    function initFaqAccordion() {
+        const faqButtons = document.querySelectorAll('.faq-question');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                faqButtons.forEach(btn => {
+                    if (btn !== button) {
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.nextElementSibling.classList.remove('open');
+                        btn.querySelector('.faq-icon').classList.remove('rotate');
+                    }
+                });
+                
+                if (!isExpanded) {
+                    button.setAttribute('aria-expanded', 'true');
+                    answer.classList.add('open');
+                    icon.classList.add('rotate');
+                } else {
+                    button.setAttribute('aria-expanded', 'false');
+                    answer.classList.remove('open');
+                    icon.classList.remove('rotate');
+                }
+            });
+        });
+        
+        const faqCards = document.querySelectorAll('.faq-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        faqCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            cardObserver.observe(card);
+        });
+    }
+
+    // --- ЗАГРУЗКА СТАТЕЙ ---
+    function initArticleLoader() {
+        const articles = Array.isArray(window.ARTICLES) ? window.ARTICLES.slice() : [];
+        if (!articles.length) return;
+
+        // Новые статьи сверху: сортировка по дате от новых к старым.
+        articles.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+        function escapeHtml(value) {
+            return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString + 'T00:00:00');
+            if (Number.isNaN(date.getTime())) return dateString;
+            return date.toLocaleDateString('lv-LV', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function createArticleCard(article) {
+            const title = escapeHtml(article.title);
+            const description = escapeHtml(article.description);
+            const category = escapeHtml(article.category || 'Raksts');
+            const readingTime = escapeHtml(article.readingTime || '');
+            const url = escapeHtml(article.url);
+            const dateText = escapeHtml(formatDate(article.date));
+            const badge = article.featured ? '<span class="article-badge">Jauns raksts</span>' : '';
+
+            return `
+                <article class="article-card visible article-preview-card">
+                    <div class="article-header">
+                        <div class="article-card-meta">
+                            <span>${category}</span>
+                            ${readingTime ? `<span>${readingTime}</span>` : ''}
+                        </div>
+                        <h2>${title}</h2>
+                        ${dateText ? `<p>${dateText}</p>` : ''}
+                        ${badge}
+                    </div>
+                    <div class="article-content">
+                        <p>${description}</p>
+                        <a class="read-more-btn" href="${url}">Lasīt rakstu (RU)</a>
+                    </div>
+                </article>`;
+        }
+
+        function renderArticles(container, items) {
+            container.innerHTML = items.map(createArticleCard).join('');
+        }
+
+        // Главная страница: показываем последние 6 raksti.
+        const homeList = document.getElementById('articles-list');
+        if (homeList) {
+            renderArticles(homeList, articles.slice(0, 6));
+        }
+
+        // Страница articles.html: каталог всех raksti + фильтр + поиск.
+        const allList = document.getElementById('all-articles-list');
+        if (allList) {
+            const searchInput = document.getElementById('article-search');
+            const categorySelect = document.getElementById('article-category');
+            const countElement = document.getElementById('articles-count');
+
+            const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort();
+            if (categorySelect) {
+                categorySelect.innerHTML = '<option value="">Visas tēmas</option>' + categories.map(cat => `<option value="${escapeHtml(cat)}">${escapeHtml(cat)}</option>`).join('');
+            }
+
+            function applyFilters() {
+                const query = (searchInput?.value || '').trim().toLowerCase();
+                const category = categorySelect?.value || '';
+                const filtered = articles.filter(article => {
+                    const haystack = [article.title, article.description, article.category, ...(article.keywords || [])].join(' ').toLowerCase();
+                    const matchesQuery = !query || haystack.includes(query);
+                    const matchesCategory = !category || article.category === category;
+                    return matchesQuery && matchesCategory;
+                });
+                renderArticles(allList, filtered);
+                if (countElement) countElement.textContent = `${filtered.length} ${filtered.length === 1 ? 'raksts' : 'raksti'}`;
+            }
+
+            searchInput?.addEventListener('input', applyFilters);
+            categorySelect?.addEventListener('change', applyFilters);
+            applyFilters();
+        }
+    }
+
+    // =================================================================================
+    // === 4. ДИНАМИЧЕСКАЯ ССЫЛКА WHATSAPP (Форма контактов) ===========================
+    // =================================================================================
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const serviceSelect = document.getElementById('service');
+    const messageTextarea = document.getElementById('message');
+    const whatsappBtn = document.getElementById('whatsapp-form-btn');
+
+    if (nameInput && phoneInput && serviceSelect && messageTextarea && whatsappBtn) {
+        
+        const updateWhatsAppLink = () => {
+            const baseWhatsAppUrl = 'https://wa.me/37126037277';
+            
+            // Собираем данные из формы
+            const name = nameInput.value;
+            const phone = phoneInput.value;
+            const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+            const message = messageTextarea.value;
+
+            // Формируем текст сообщения
+            let text = `Labdien! Vēlos pieteikties konsultācijai.\n\n`;
+            if (name) text += `Vārds: ${name}\n`;
+            if (phone) text += `Tālrunis: ${phone}\n`;
+            if (serviceSelect.value) text += `Pakalpojums: ${service}\n`;
+            if (message) text += `Ziņa: ${message}\n`;
+
+            // Кодируем текст для URL и обновляем ссылку на кнопке
+            whatsappBtn.href = `${baseWhatsAppUrl}?text=${encodeURIComponent(text)}`;
+        };
+
+        // Добавляем обработчики событий, которые будут обновлять ссылку при любом вводе
+        nameInput.addEventListener('input', updateWhatsAppLink);
+        phoneInput.addEventListener('input', updateWhatsAppLink);
+        serviceSelect.addEventListener('input', updateWhatsAppLink);
+        messageTextarea.addEventListener('input', updateWhatsAppLink);
+
+        // Вызываем функцию один раз при загрузке на случай, если браузер сохранил значения
+        updateWhatsAppLink();
+    }
+
+});
+
+// =================================================================================
+// === 5. ГЛОБАЛЬНАЯ ПРОГРЕССИВНАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЯ (Fallback) =================
+// =================================================================================
+const topHeroImage = document.querySelector('.progressive-image');
+
+if (topHeroImage) {
+  // Создаем в памяти новое изображение, чтобы загрузить его в фоне
+  const highResImage = new Image();
+  const highResSrc = topHeroImage.dataset.src;
+  const highResSrcset = topHeroImage.dataset.srcset;
+
+  // Как только качественное изображение загрузится в памяти...
+  highResImage.onload = function() {
+    // ...подменяем атрибуты у видимого изображения
+    topHeroImage.src = highResSrc;
+    if (highResSrcset) topHeroImage.srcset = highResSrcset;
+    // И добавляем класс для удаления размытия
+    topHeroImage.classList.add('loaded');
+  };
+
+  // Запускаем загрузку качественного изображения в памяти
+  highResImage.src = highResSrc;
+  if (highResSrcset) highResImage.srcset = highResSrcset;
+}
